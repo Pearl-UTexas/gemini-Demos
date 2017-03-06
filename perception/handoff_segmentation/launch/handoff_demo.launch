@@ -1,0 +1,14 @@
+<!-- Starts up everything needed to run the example listener/talker nodes. -->
+<launch>
+   <arg name="segmentation/nv" default="false" />
+  <arg name="segmentation/rt" default="/kinect/sd/points" />
+  <!--<arg name="segmentation/v" default="340" /> -->
+  <arg name="segmentation/src" default="0" />          <!-- Make it 2 for Kinect -->
+
+  <node pkg="handoff_segmentation" type="handoff_seg" name="handoff_seg" output="screen">
+    <param name="segmentation/nv" value="$(arg segmentation/nv)" />
+    <param name="segmentation/rt" value="$(arg segmentation/rt)" />
+    <param name="segmentation/src" value="$(arg segmentation/src)" />
+    <!--<param name="segmentation/v" value="$(arg segmentation/v)" /> -->
+  </node>
+</launch>
